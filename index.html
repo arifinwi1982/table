@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound Interest</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h3>Compound Interest Calculator</h3>
+    <form class="table" id="input">
+      <div class="row">
+        <label for="deposit">Initial deposit:</label>
+        <input
+          type="number"
+          id="deposit"
+          min="1"
+          max="9999"
+          step="1"
+          required
+        />
+      </div>
+      <div class="row">
+        <label for="rate">Annual interest rate:</label>
+        <input type="number" id="rate" min="0" max="100" step=".1" required />
+        <span>&nbsp;%</span>
+      </div>
+      <div class="row">
+        <label for="years">Years to grow:</label>
+        <input type="number" id="years" min="1" max="20" step="1" required />
+      </div>
+    </form>
+    <br />
+    <input
+      type="button"
+      form="input"
+      value="Generate compound interest"
+      onclick="generateTable(this.form)"
+    />
+    <br /><br />
+    <div id="result"></div>
+    <div id="container"></div>
+    <script src="compoundInterest.js"></script>
+<script>
+function generateTable(form) {
+  var amount; // accumulated value for each new year
+  var rate; // interest rate
+  var years; // years for principal to grow
+  var interest; // interest earned each year
+  var table; // compound interest table
+  var year = 1; // the year being calculated
+  const myresult = [];
+  amount = form.elements['deposit'].valueAsNumber;
+  rate = form.elements['rate'].valueAsNumber;
+  years = form.elements['years'].valueAsNumber;
+  interest = (amount * rate) / 100;
+  table =
+  '<table>' +
+  '<tr><th>Year</th><th>Starting Value</th>' +
+  '<th>Interest Earned</th><th>Ending Value</th></tr>';
+  for(let x=0; x <years; x++)
+ {
+
+
+ }
+} // end generateTable
+
+  // ---> Write your code here to generate the table and show it in the page
+// (B) DUMMY ARRAY
+var data = ["doge", "cate", "birb", "doggo", "moon moon", "awkward seal"];
+ const myresut =[];   
+ for(let x=0; x <years; x++)
+ {
+
+
+ }
+    // (C) CREATE HTML TABLE
+    // (C1) HTML TABLE STRING
+    var myTable = "<table><tr>";
+    
+    // (C2) LOOP THROUGH ARRAY & GENERATE ROWS-CELLS
+    var perrow = 3; // 2 CELLS PER ROW
+    data.forEach((value, i) => {
+      // "NORMAL" CELL
+      myTable += `<td>${value}</td>`;
+     
+      // CLICK ON CELL TO DO SOMETHING
+      // myTable += `<td onclick="FUNCTION()">${value}</td>`;
+     
+      // TO PASS IN A RUNNING NUMBER OR PARAMETER
+      // myTable += `<td onclick="FUNCTION(${i})">${value}</td>`;
+     
+      // BREAK INTO NEXT ROW
+      var next = i + 1;
+      if (next%perrow==0 && next!=data.length) { myTable += "</tr><tr>"; }
+    });
+    
+    // (C3) CLOSE THE TABLE STRING
+    myTable += "</tr></table>";
+     
+    // (D) ATTACH HTML TO CONTAINER
+    document.getElementById("container").innerHTML = myTable;
+  
+</script>
+
+
+  </body>
+</html>
